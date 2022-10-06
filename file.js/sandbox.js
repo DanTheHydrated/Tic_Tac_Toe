@@ -8,15 +8,63 @@ const gameState = {
     oState: []
 };
 
+if(i<1){
+    TL.disabled= true;
+    TC.disabled= true;
+    TR.disabled= true;
+    ML.disabled= true;
+    MC.disabled= true;
+    MR.disabled= true;
+    BL.disabled= true;
+    BC.disabled= true;
+    BR.disabled= true;
+};
+
 start.addEventListener('click', () => {
     if(i>0){
         i=0
     start.innerHTML='start';
+    startBack();
     }else{
     i++;
     console.log(i);
     start.innerHTML='Reset';
+    startPLay();
 }});
+
+function startPLay(){
+    TL.disabled= false;
+    TC.disabled= false;
+    TR.disabled= false;
+    ML.disabled= false;
+    MC.disabled= false;
+    MR.disabled= false;
+    BL.disabled= false;
+    BC.disabled= false;
+    BR.disabled= false;
+    gameState.xState.length= 0;
+    console.log(gameState.xState);
+    gameState.oState.length= 0;
+    console.log(gameState.oState);
+};
+
+function startBack() {
+    TL.disabled = true;
+    TC.disabled = true;
+    TR.disabled = true;
+    ML.disabled = true;
+    MC.disabled = true;
+    MR.disabled = true;
+    BL.disabled = true;
+    BC.disabled = true;
+    BR.disabled = true;
+    gameState.xState.length = 0;
+    console.log(gameState.xState);
+    gameState.oState.length = 0;
+    console.log(gameState.oState)
+};
+
+
 
 
 
@@ -100,11 +148,9 @@ function winCheck(){
             
             function testWinn(e){
                 if(e.every(r => gameState.xState.includes(r))){
-                    if (i%2 !==0){
-                        console.log('O WINS!');
-                    } else if (i%2 === 0){
-                        console.log('X WINS!');
-                    } 
+                    console.log('X WINS!');
+                } else if (e.every(r => gameState.oState.includes(r))){
+                    console.log('O WINS!');
                 }
             }
     };
