@@ -3,7 +3,7 @@ let i = 0;
 
 const gameState = {
     turncount: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-    winCon: [7.53, 3.6, 7.56, 11.46, 7.55, 7.86, 7.54, 7.22],
+    winCon: [[TL, TC, TR], [ML, MC, MR], [BL, BC, BR], [TL, ML, BL], [TC, MC, BC], [TR, MR, BR], [TL, MC, BR], [TR, MC, BL]],
     xState: [],
     oState: []
 };
@@ -21,46 +21,46 @@ start.addEventListener('click', () => {
 
 
 TL.addEventListener('click', () => {
-    tileClick(TL, 1.1);
+    tileClick(TL, TL);
 });
 
 TC.addEventListener('click', () => {
-    tileClick(TC, 1.2);
+    tileClick(TC, TC);
 });
 
 TR.addEventListener('click', () => {
-    tileClick(TR, 1.3);
+    tileClick(TR, TR);
 });
 
 ML.addEventListener('click', () => {
-    tileClick(ML, 2.41);
+    tileClick(ML, ML);
 });
 
 MC.addEventListener('click', () => {
-    tileClick(MC, 2.52);
+    tileClick(MC, MC);
 });
 
 MR.addEventListener('click', () => {
-    tileClick(MR, 2.63);
+    tileClick(MR, MR);
 });
 
 BL.addEventListener('click', () => {
-    tileClick(BL, 3.71);
+    tileClick(BL, BL);
 });
 
 BC.addEventListener('click', () => {
-    tileClick(BC, 3.82);
+    tileClick(BC, BC);
 });
 
 BR.addEventListener('click', () => {
-    tileClick(BR, 3.93);
+    tileClick(BR, BR);
 });
 
 
 
 function turnCount(){
     i++;
-    if(i>=5){
+    if(i>5){
         winCheck();
     }
     if(i>9){
@@ -69,14 +69,14 @@ function turnCount(){
     console.log(i);
 };
 
-function tileClick(tile, v){
+function tileClick(tile, name){
     if(i%2 !== 0){
-        gameState.xState.push(v);
+        gameState.xState.push(name);
         console.log(gameState.xState);
         turnCount();
         // console.log(i);
     }else if (i%2 === 0){
-        gameState.oState.push(v);
+        gameState.oState.push(name);
         console.log(gameState.oState);
         turnCount();
         // console.log(i);
@@ -99,14 +99,12 @@ function winCheck(){
             // sum = gameState.xState.reduce((a, b) => a + b);
             
             function testWinn(e){
-                let now = gameState.xState.reduce((a, b) => a + b);
-                let sum = Math.round(now * 10) / 10;
-                if (e === sum){
-                    if(i%2 !== 0){
-                        console.log('X WON!');
-                    }else if (i%2 === 0){
-                        console.log('O WON!');
-                    }
+                if(e.every(r => gameState.xState.includes(r))){
+                    if (i%2 !==0){
+                        console.log('O WINS!');
+                    } else if (i%2 === 0){
+                        console.log('X WINS!');
+                    } 
                 }
             }
     };
