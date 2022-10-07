@@ -1,7 +1,7 @@
-let i = 0;
+let i = 0;   //This is what controles the turn and the page generation
 // let v = 0;
 
-const gameState = {
+const gameState = {             //This is the board state that is manipulated
     images: [1, 2, 3, 4, 5, 6, 7, 8, 9],
     winCon: [[TL, TC, TR], [ML, MC, MR], [BL, BC, BR], [TL, ML, BL], [TC, MC, BC], [TR, MR, BR], [TL, MC, BR], [TR, MC, BL]],
     xState: [],
@@ -10,7 +10,7 @@ const gameState = {
 };
 
 
-if(i<1){
+if(i<1){      //This is what disables all the buttons if the game isn't being played 
     gameState.buttons.forEach(e => shutDown(e));
     function shutDown(e){
         e.disabled = true;
@@ -26,7 +26,7 @@ if(i<1){
     // BR.disabled= true;
 };
 
-start.addEventListener('click', () => {
+start.addEventListener('click', () => {   //This controles the startbutton and makes it either start the game or reset it
     if(i>0){
         i=0
     start.innerHTML='start';
@@ -36,9 +36,10 @@ start.addEventListener('click', () => {
     console.log(i);
     start.innerHTML='Reset';
     startPLay();
+    whosTurn();
 }});
 
-function startPLay(){
+function startPLay(){      //This is what opens the game for play and enables the buttons to be manipulated 
     gameState.buttons.forEach(e => shutDown(e));
     function shutDown(e){
         e.disabled = false;
@@ -58,8 +59,8 @@ function startPLay(){
     console.log(gameState.oState);
 };
 
-function startBack() {
-    i=0;
+function startBack() {    //This is what bloacks the buttons from being pressed again after they have been clicked once 
+    i=0;    
     start.innerHTML='start';
     gameState.buttons.forEach(e => shutDown(e));
     function shutDown(e){
@@ -101,7 +102,7 @@ function startBack() {
 
 
 
-
+//This is where all my dumb event listeners are, and they also work in tandom with my hover effect
 
 TL.addEventListener('click', () => {
     if (TL.classList.contains('active')) {
@@ -166,7 +167,7 @@ BR.addEventListener('click', () => {
     tileClick(BR, BR, 9);
 });
 
-
+//This is where the hover image is populated 
 function changeImg(img) {
     document.getElementById(img).src = "./images/IMG_0805.jpg";
 };
@@ -174,7 +175,7 @@ function changeImg2(img) {
     document.getElementById(img).src = "./images/IMG_0801.jpg";
 };
 
-
+//This is what counts the turn
 function turnCount(){
     i++;
     if(i>5){
@@ -183,18 +184,30 @@ function turnCount(){
     console.log(i);
 };
 
+//This is what counts the turn and displays it 
+function whosTurn(){
+    if(i%2 !== 0){
+        document.getElementById('turn').innerHTML='X turn!';
+    }else if (i%2 === 0) {
+        document.getElementById('turn').innerHTML='O turn!'
+    };
+};
+
+//This is what is controling the Tile that is pushed and sets it to not be hoverable 
 function tileClick(tile, name, picId){
     if(i%2 !== 0){
         gameState.xState.push(name);
         console.log(gameState.xState);
         document.getElementById(picId).src = './images/IMG_0804.jpg';
         turnCount();
+        whosTurn();
         // console.log(i);
     }else if (i%2 === 0){
         gameState.oState.push(name);
         console.log(gameState.oState);
         document.getElementById(picId).src = './images/IMG_0802.jpg';
         turnCount();
+        whosTurn();
         // console.log(i);
     }
     (tile).disabled = true;
@@ -209,7 +222,7 @@ function tileClick(tile, name, picId){
 //     console.log('Winner!')
 // }
 
-
+//This is what checks for a Winn and either ends the game or not 
 function winCheck() {
     gameState.winCon.forEach(e => testWinn(e));
     // sum = gameState.xState.reduce((a, b) => a + b);

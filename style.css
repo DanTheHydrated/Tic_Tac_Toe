@@ -1,3 +1,18 @@
+.bg-primary {
+    --bs-bg-opacity: .25;
+}
+
+body{
+    background-color: black;
+}
+
+.text-info {
+    --bs-text-opacity: .6;
+}
+
+/* Everything past this is the hover effect and Its a loooooot*/
+
+
 .sweating, #TL.active:hover .top {
     display: none;
 }
