@@ -1,0 +1,87 @@
+.sweating, #TL.active:hover .top {
+    display: none;
+}
+
+.top, #TL.active:hover .sweating {
+    display: block
+}
+
+
+
+.sweating, #TC.active:hover .top {
+    display: none;
+}
+
+.top, #TC.active:hover .sweating {
+    display: block
+}
+
+
+
+.sweating, #TR.active:hover .top {
+    display: none;
+}
+
+.top, #TR.active:hover .sweating {
+    display: block
+}
+
+
+
+.sweating, #ML.active:hover .top {
+    display: none;
+}
+
+.top, #ML.active:hover .sweating {
+    display: block
+}
+
+
+
+.sweating, #MC.active:hover .top {
+    display: none;
+}
+
+.top, #MC.active:hover .sweating {
+    display: block
+}
+
+
+
+.sweating, #MR.active:hover .top {
+    display: none;
+}
+
+.top, #MR.active:hover .sweating {
+    display: block
+}
+
+
+
+.sweating, #BL.active:hover .top {
+    display: none;
+}
+
+.top, #BL.active:hover .sweating {
+    display: block
+}
+
+
+
+.sweating, #BC.active:hover .top {
+    display: none;
+}
+
+.top, #BC.active:hover .sweating {
+    display: block
+}
+
+
+
+.sweating, #BR.active:hover .top {
+    display: none;
+}
+
+.top, #BR.active:hover .sweating {
+    display: block
+}
