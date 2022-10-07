@@ -179,7 +179,7 @@ function turnCount(){
     i++;
     if(i>5){
         winCheck();
-    }
+    } 
     console.log(i);
 };
 
@@ -210,70 +210,73 @@ function tileClick(tile, name, picId){
 // }
 
 
-function winCheck(){
-            gameState.winCon.forEach(e => testWinn(e));
-            // sum = gameState.xState.reduce((a, b) => a + b);
+function winCheck() {
+    gameState.winCon.forEach(e => testWinn(e));
+    // sum = gameState.xState.reduce((a, b) => a + b);
+
+    function testWinn(e) {
+        if (e.every(r => gameState.xState.includes(r))) { //bug on play 9, can still win but its going past it.
+
+            Swal.fire({
+                title: 'X WINS!',
+                width: 600,
+                text: 'O is mid...',
+                padding: '3em',
+                color: '#716add',
+                background: '#fff url(./images/confefiiTransparent.gif)',
+                backdrop: `
+                            rgba(0,0,123,0.4)
+                            url("./images/finish.gif")
+                            center top
+                            no-repeat
+                        `
+            });
+
             
-            function testWinn(e){
-                if(e.every(r => gameState.xState.includes(r))){
+            console.log('X WINS!');
+        } else if (e.every(r => gameState.oState.includes(r))) {
 
-                    Swal.fire({
-                        title: 'X WINS!',
-                        width: 600,
-                        text: 'O is mid...',
-                        padding: '3em',
-                        color: '#716add',
-                        background: '#fff url(./images/confefiiTransparent.gif)',
-                        backdrop: `
+            Swal.fire({
+                title: 'O WINS!',
+                width: 600,
+                text: 'X is mid...',
+                padding: '3em',
+                color: '#716add',
+                background: '#fff url(./images/confefiiTransparent.gif)',
+                backdrop: `
                             rgba(0,0,123,0.4)
                             url("./images/finish.gif")
                             center top
                             no-repeat
                         `
-                    });
+            });
 
+            
+            console.log('O WINS!');
+        } else if(!e.every(r => gameState.oState.includes(r))) {
+            if (!e.every(r => gameState.xState.includes(r))) {
+                if(i>9){
+
+                Swal.fire({
+                    title: 'YOU BOTH ARE JUST THE WORST!',
+                    width: 600,
+                    text: 'X and O are mid...',
+                    padding: '3em',
+                    color: '#716add',
+                    background: '#fff url(./images/confefiiTransparent.gif)',
+                    backdrop: `
+                            rgba(0,0,123,0.4)
+                            url("./images/finish.gif")
+                            center top
+                            no-repeat
+                        `
+                });
                 startBack();
-                    console.log('X WINS!');
-                } else if (e.every(r => gameState.oState.includes(r))){
-
-                    Swal.fire({
-                        title: 'O WINS!',
-                        width: 600,
-                        text: 'X is mid...',
-                        padding: '3em',
-                        color: '#716add',
-                        background: '#fff url(./images/confefiiTransparent.gif)',
-                        backdrop: `
-                            rgba(0,0,123,0.4)
-                            url("./images/finish.gif")
-                            center top
-                            no-repeat
-                        `
-                    });
-
-                    startBack()
-                    console.log('O WINS!');
-                } else {
-
-                    Swal.fire({
-                        title: 'YOU BOTH ARE JUST THE WORST!',
-                        width: 600,
-                        text: 'X and O are mid...',
-                        padding: '3em',
-                        color: '#716add',
-                        background: '#fff url(./images/confefiiTransparent.gif)',
-                        backdrop: `
-                            rgba(0,0,123,0.4)
-                            url("./images/finish.gif")
-                            center top
-                            no-repeat
-                        `
-                    });
-                    startBack();
-                };
-
             };
+            };
+        };
     };
+};
 
     // function testWinn(e, sum){
     //     if (e === sum)
