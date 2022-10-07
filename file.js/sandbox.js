@@ -59,6 +59,8 @@ function startPLay(){
 };
 
 function startBack() {
+    i=0;
+    start.innerHTML='start';
     gameState.buttons.forEach(e => shutDown(e));
     function shutDown(e){
         e.disabled = true;
@@ -178,9 +180,6 @@ function turnCount(){
     if(i>5){
         winCheck();
     }
-    if(i>9){
-        draw();
-    }
     console.log(i);
 };
 
@@ -217,11 +216,63 @@ function winCheck(){
             
             function testWinn(e){
                 if(e.every(r => gameState.xState.includes(r))){
+
+                    Swal.fire({
+                        title: 'X WINS!',
+                        width: 600,
+                        text: 'O is mid...',
+                        padding: '3em',
+                        color: '#716add',
+                        background: '#fff url(./images/confefiiTransparent.gif)',
+                        backdrop: `
+                            rgba(0,0,123,0.4)
+                            url("./images/finish.gif")
+                            center top
+                            no-repeat
+                        `
+                    });
+
+                startBack();
                     console.log('X WINS!');
                 } else if (e.every(r => gameState.oState.includes(r))){
+
+                    Swal.fire({
+                        title: 'O WINS!',
+                        width: 600,
+                        text: 'X is mid...',
+                        padding: '3em',
+                        color: '#716add',
+                        background: '#fff url(./images/confefiiTransparent.gif)',
+                        backdrop: `
+                            rgba(0,0,123,0.4)
+                            url("./images/finish.gif")
+                            center top
+                            no-repeat
+                        `
+                    });
+
+                    startBack()
                     console.log('O WINS!');
-                }
-            }
+                } else {
+
+                    Swal.fire({
+                        title: 'YOU BOTH ARE JUST THE WORST!',
+                        width: 600,
+                        text: 'X and O are mid...',
+                        padding: '3em',
+                        color: '#716add',
+                        background: '#fff url(./images/confefiiTransparent.gif)',
+                        backdrop: `
+                            rgba(0,0,123,0.4)
+                            url("./images/finish.gif")
+                            center top
+                            no-repeat
+                        `
+                    });
+                    startBack();
+                };
+
+            };
     };
 
     // function testWinn(e, sum){

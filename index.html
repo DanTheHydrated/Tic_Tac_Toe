@@ -4,26 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div class="container grid">
+    <div class="container-grid">
         <div class="row">
-            <div class="col">
+            <div class="col-sm-4">
                 <button id="TL" name="TL" class="active">
                     <img id="1" src="./images/IMG_0801.jpg" alt="front" class="top" height="100" width="100">
                     <img id="1" src="./images/IMG_0805.jpg" alt="back" class="sweating" height="100" width="100">
                 </button>
             </div>
-            <div class="col">
+            <div class="col-sm-4">
                 <button id="TC" name="TC" class="active">
                     <img id="2" src="./images/IMG_0801.jpg" alt="front" class="top" height="100" width="100">
                     <img id="2" src="./images/IMG_0805.jpg" alt="back" class="sweating" height="100" width="100">
                 </button>
             </div>
-            <div class="col">
+            <div class="col-sm-4">
                 <button id="TR" name="TR" class="active">
                     <img id="3" src="./images/IMG_0801.jpg" alt="front" class="top" height="100" width="100">
                     <img id="3" src="./images/IMG_0805.jpg" alt="back" class="sweating" height="100" width="100">
@@ -31,19 +31,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-sm-4">
                 <button id="ML" name="ML" class="active">
                     <img id="4" src="./images/IMG_0801.jpg" alt="front" class="top" height="100" width="100"/>
                     <img id="4" src="./images/IMG_0805.jpg" alt="back" class="sweating" height="100" width="100"/>
                 </button>
             </div>
-            <div class="col">
+            <div class="col-sm-4">
                 <button id="MC" name="MC" class="active">
                     <img id="5" src="./images/IMG_0801.jpg" alt="front" class="top" height="100" width="100">
                     <img id="5" src="./images/IMG_0805.jpg" alt="back" class="sweating" height="100" width="100">
                 </button>
             </div>
-            <div class="col">
+            <div class="col-sm-4">
                 <button id="MR" name="MR" class="active">
                     <img id="6" src="./images/IMG_0801.jpg" alt="front" class="top" height="100" width="100">
                     <img id="6" src="./images/IMG_0805.jpg" alt="back" class="sweating" height="100" width="100">
@@ -51,19 +51,19 @@
             </div>
         </div>
         <div class="row">
-            <div class="col">
+            <div class="col-sm-4">
                 <button id="BL" name="BL" class="active">
                     <img id="7" src="./images/IMG_0801.jpg" alt="front" class="top" height="100" width="100">
                     <img id="7" src="./images/IMG_0805.jpg" alt="back" class="sweating" height="100" width="100">
                 </button>
             </div>
-            <div class="col">
+            <div class="col-sm-4">
                 <button id="BC" name="BC" class="active">
                     <img id="8" src="./images/IMG_0801.jpg" alt="front" class="top" height="100" width="100">
                     <img id="8" src="./images/IMG_0805.jpg" alt="back" class="sweating" height="100" width="100">
                 </button>
             </div>
-            <div class="col">
+            <div class="col-sm-4">
                 <button id="BR" name="BR" class="active">
                     <img id="9" src="./images/IMG_0801.jpg" alt="front" class="top" height="100" width="100">
                     <img id="9" src="./images/IMG_0805.jpg" alt="back" class="sweating" height="100" width="100">
@@ -72,6 +72,7 @@
         </div>
         <div><button id="start">start</button></div>
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="./file.js/sandbox.js"></script>
 </body>
 </html>
